@@ -20,7 +20,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col" style="text-align: left">標題</th>
-            <th scope="col" style="text-align: right">精選?</th>
+            <th scope="col" style="text-align: left">精選?</th>
             <th scope="col">功能</th>
         </tr>
         </thead>
@@ -29,6 +29,7 @@
             <tr>
                 <th scope="row" style="width: 50px">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
+                <td>{{ $post-> is_feature	}}</td>
                 <td style="width: 150px">
                     <button type="button" class="btn btn-primary btn-sm">編輯</button>
                     <button type="button" class="btn btn-danger btn-sm">刪除</button>
