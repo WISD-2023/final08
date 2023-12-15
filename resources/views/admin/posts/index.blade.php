@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('page-title', 'Article list')
+@section('page-title', '後臺管理')
 
 @section('page-content')
 <div class="container-fluid px-4">
