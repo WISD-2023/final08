@@ -7,9 +7,18 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('posts.index') }}">Blog文章</a></li>
                 @if (Route::has('login'))
-                    <li class="nav-item">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                        <li class="nav-item">
+
+                        <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <a href="{{ route('logout') }}"
+                                                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form></li>
                         @else
                             <a href="{{ route('login') }}" class="nav-link">登入</a></li>
                     <li class="nav-item">
