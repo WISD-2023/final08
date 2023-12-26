@@ -8,7 +8,10 @@
                 <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('posts.index') }}">Blog文章</a></li>
                 <li class="nav-item">
                 @if (Route::has('login'))
-                    @auth
+
+                @auth
+                        <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('admin.posts.index') }}">後臺控制</a></li>
+
                         <li><a class="nav-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();" style="color:white">{{ __('登出') }}</a>
@@ -17,6 +20,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+
                     @else
                             <a href="{{ route('login') }}" class="nav-link">登入</a></li>
                     <li class="nav-item">
