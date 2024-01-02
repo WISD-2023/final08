@@ -21,4 +21,9 @@ class Post extends Model
         'title' => 'string',
         'content' => 'string',
     ];
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }
