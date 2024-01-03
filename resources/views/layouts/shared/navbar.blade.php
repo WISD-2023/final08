@@ -10,7 +10,10 @@
                 @if (Route::has('login'))
 
                 @auth
+                        @if (isset(Auth::User()->admin))
+
                         <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('admin.posts.index') }}">管理員後臺控制</a></li>
+                        @endif
                         <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('member.posts.index') }}">會員後臺控制</a></li>
 
                         <li><a class="nav-item" href="{{ route('logout') }}"
