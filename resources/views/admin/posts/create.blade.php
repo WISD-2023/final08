@@ -31,6 +31,11 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-primary btn-sm" type="submit">儲存</button>
         </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">創建者</label>
+            <input id="poster" name="poster" type="text" class="form-control" placeholder="請輸入文章標題">
+        </div>
+
     </form>
 </div>
 @endsection

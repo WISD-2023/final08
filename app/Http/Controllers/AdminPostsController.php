@@ -27,9 +27,11 @@ class AdminPostsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required',
+            'poster' => 'required|max:50',
             'is_feature' => 'required|boolean',   //請加入is_feature欄位的驗證規則
-        ]);
 
+        ]);
+//dd ($request);
         Post::create($request->all());
         return redirect(route('admin.posts.index'));
     }
