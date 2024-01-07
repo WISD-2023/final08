@@ -15,8 +15,9 @@ class Admin extends Model
 
     protected $fillable = [
         'user_id',
-
-        'position',
+    ];
+    protected $casts = [
+        'user_id' => 'string',
     ];
 
     public function posts()

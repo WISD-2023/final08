@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminMembersController;
 use App\Http\Controllers\AdminPostsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberHomeController;
@@ -44,6 +45,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('posts/{post}/edit', [AdminPostsController::class, 'edit'])->name("posts.edit");
     Route::patch('posts/{post}', [AdminPostsController::class, 'update'])->name("posts.update");
     Route::delete('posts/{post}', [AdminPostsController::class, 'destroy'])->name("posts.destroy");
+    Route::get('members', [AdminMembersController::class, 'index'])->name("members.index");
+    Route::get('members/create', [AdminMembersController::class, 'create'])->name("members.create");
+    Route::post('members', [AdminMembersController::class, 'store'])->name("members.store");
+    Route::get('members/{member}/edit', [AdminMembersController::class, 'edit'])->name("members.edit");
+    Route::patch('members/{member}', [AdminMembersController::class, 'update'])->name("members.update");
+    Route::delete('members/{member}', [AdminMembersController::class, 'destroy'])->name("members.destroy");
 });
 Route::prefix('member')->name('member.')->group(function () {
     Route::get('/', [MemberHomeController::class, 'index'])->name("home.index");
