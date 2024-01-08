@@ -14,6 +14,12 @@
                     </div>
                     文章管理
                 </a>
+                <a class="nav-link" href="{{ route('member.collects.index') }}">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    收藏列
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">

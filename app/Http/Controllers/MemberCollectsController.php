@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class MemberPostsController extends Controller
+class MemberCollectsController extends Controller
 {
     public function index()
     {
