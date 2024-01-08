@@ -20,7 +20,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col" style="text-align: left">標題</th>
-            <th scope="col" style="text-align: left">精選?</th>
+            <th scope="col" style="text-align: left">作者</th>
             <th scope="col">功能</th>
         </tr>
         </thead>
@@ -29,7 +29,7 @@
             <tr>
                 <th scope="row" style="width: 50px">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
-                <td>{{ $post-> is_feature	}}</td>
+                <td>{{ $post->poster}}</td>
                 <td style="width: 150px">
                     <a class="btn btn-primary btn-sm" href="{{ route('admin.posts.edit', $post->id) }}">編輯</a>
                     <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post" style="display: inline-block">

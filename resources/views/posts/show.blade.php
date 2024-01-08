@@ -31,11 +31,11 @@
                 <!-- Comments section-->
                 <section class="mb-5">
                     <div class="card bg-light">
-
+                        創建者{{ $post->poster }}
                     </div>
                 </section>
             </div>
-            
+
         </div>
     </div>
 @endsection
