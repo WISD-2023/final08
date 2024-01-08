@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Collect;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -8,7 +9,7 @@ class MemberCollectsController extends Controller
 {
     public function index()
     {
-        $collects = Post::orderBy('id','DESC')->get();
+        $collects = Collect::orderBy('id','DESC')->get();
         //dd($collects);
         $date =[
             'collects'=>$collects
