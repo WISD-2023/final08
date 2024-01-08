@@ -27,7 +27,9 @@ class MemberPostsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required',
-            'is_feature' => 'required|boolean',   //請加入is_feature欄位的驗證規則
+            'poster' => 'required',
+            'is_feature' => 'required',
+
         ]);
 
         Post::create($request->all());

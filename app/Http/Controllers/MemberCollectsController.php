@@ -8,18 +8,18 @@ class MemberCollectsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id','DESC')->get();
-        //dd($posts);
+        $collects = Post::orderBy('id','DESC')->get();
+        //dd($collects);
         $date =[
-            'posts'=>$posts
+            'collects'=>$collects
         ];
-        return view('member.posts.index',$date);
+        return view('member.collects.index',$date);
 
     }
 
     public function create()
     {
-        return view('member.posts.create');
+        return view('member.collects.create');
     }
 
     public function store(Request $request)
@@ -31,7 +31,7 @@ class MemberCollectsController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect(route('member.posts.index'));
+        return redirect(route('member.collects.index'));
     }
 
     public function edit(Post $post)
@@ -40,7 +40,7 @@ class MemberCollectsController extends Controller
             'post' => $post,
         ];
 
-        return view('member.posts.edit', $data);
+        return view('member.collects.edit', $data);
     }
 
     public function update(Request $request, Post $post)
@@ -52,13 +52,13 @@ class MemberCollectsController extends Controller
         ]);
         $post->update($request->all());
 
-        return redirect()->route('member.posts.index');
+        return redirect()->route('member.collects.index');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
 
-        return redirect()->route('member.posts.index');
+        return redirect()->route('member.collects.index');
     }
 }

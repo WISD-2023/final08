@@ -8,13 +8,7 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">文章一覽表</li>
     </ol>
-    <div class="alert alert-success alert-dismissible" role="alert" id="liveAlert">
-        <strong>完成！</strong> 成功儲存文章
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-success btn-sm" href="{{ route('member.posts.create') }}">新增</a>
-    </div>
+
     <table class="table">
         <thead>
         <tr>
@@ -25,17 +19,16 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($posts as $post)
+        @foreach($collects as $collect)
             <tr>
-                <th scope="row" style="width: 50px">{{ $post->id }}</th>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->poster}}</td>
+                <th scope="row" style="width: 50px">{{ $collect->id }}</th>
+                <td>{{ $collect->title }}</td>
+                <td>{{ $collect->collectser}}</td>
                 <td style="width: 150px">
-                    <a class="btn btn-primary btn-sm" href="{{ route('member.posts.edit', $post->id) }}">編輯</a>
-                    <form action="{{ route('member.posts.destroy', $post->id) }}" method="post" style="display: inline-block">
+                    <form action="{{ route('member.collects.destroy', $collect->title) }}" method="post" style="display: inline-block">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-danger btn-sm">刪除</button>
+                        <button type="submit" class="btn btn-danger btn-sm">移除收藏列</button>
                     </form>
                 </td>
             </tr>

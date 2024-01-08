@@ -33,6 +33,9 @@
                     <div class="card bg-light">
                         創建者{{ $post->poster }}
                     </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a class="btn btn-success btn-sm" href="{{ route('member.collects.store',$post) }}">收藏</a>
+                    </div>
                 </section>
             </div>
 

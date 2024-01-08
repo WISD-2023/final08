@@ -31,7 +31,7 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-primary btn-sm" type="submit">儲存</button>
         </div>
-        {{Auth::User()->name}}
+
 
     </form>
 </div>
