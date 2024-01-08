@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+
+    protected $table = 'admins';
+
+
 
     protected $fillable = [
         'user_id',
@@ -23,5 +23,9 @@ class Admin extends Model
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

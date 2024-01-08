@@ -27,10 +27,10 @@ class AdminMembersController extends Controller
 
     public function store(Request $request)
     {
-        /*$this->validate($request, [
-            'user_id	' => 'required|max:50',
+        $this->validate($request, [
+            'user_id' => 'required|max:50',
 
-        ]);*/
+        ]);
 //dd ($request);
         Admin::create($request->all());
         return redirect(route('admin.members.index'));
@@ -59,8 +59,8 @@ class AdminMembersController extends Controller
 
     public function destroy(Admin $admin)
     {
-        dd($admin);
-        //$admin->delete();
-        //return redirect()->route('admin.members.index');
+        //dd($admin);
+        $admin->delete();
+        return redirect()->route('admin.members.index');
     }
 }
