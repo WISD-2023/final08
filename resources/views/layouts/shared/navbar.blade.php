@@ -11,10 +11,11 @@
 
                 @auth
                         @if (isset(Auth::User()->admin))
-                            @elseif (Auth::Admin()->admin->user_id=Auth::User()->name)
+                            @if(Auth::User()->name = Auth::User()->admin->user_id)
 
-                        <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('admin.posts.index') }}">管理員後臺控制</a></li>
-                        @endif
+                            <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('admin.posts.index') }}">管理員後臺控制</a></li>
+                            @endif
+                            @endif
                         <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('member.posts.index') }}">會員後臺控制</a></li>
 
                         <li><a class="nav-item" href="{{ route('logout') }}"

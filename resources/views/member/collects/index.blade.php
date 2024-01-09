@@ -20,7 +20,9 @@
         <tbody>
 
             @foreach($collects as $collect)
-                <tr>
+                @if($collect->title = Auth::Collect()->collects->title)
+
+                    <tr>
                     <th scope="row" style="width: 50px">{{ $collect->id }}</th>
                     <td>{{ $collect->title }}</td>
                     <td>{{ $collect->poster}}</td>
@@ -34,7 +36,9 @@
                         </form>
                     </td>
                 </tr>
+                @endif
             @endforeach
+
         </tbody>
     </table>
 </div>

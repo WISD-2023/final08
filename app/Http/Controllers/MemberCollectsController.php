@@ -42,11 +42,19 @@ class MemberCollectsController extends Controller
         return redirect(route('member.collects.index'));
     }
 
-    public function edit(Post $post)
+    public function edit(Collect $collect)
     {
-        $data = [
-            'post' => $post,
+
+        $collects = Collect::orderBy('id','DESC')
+            //->where('id', 'is', $collect)
+            ->get();
+        //dd($collects);
+        $data =[
+            'collects'=>$collects
         ];
+        /*$data = [
+            'post' => $collect,
+        ];*/
 //dd($data );
         return view('member.collects.edit', $data);
     }

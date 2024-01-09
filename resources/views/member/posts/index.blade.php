@@ -26,7 +26,8 @@
         </thead>
         <tbody>
         @foreach($posts as $post)
-            <tr>
+
+                <tr>
                 <th scope="row" style="width: 50px">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->poster}}</td>
@@ -39,6 +40,7 @@
                     </form>
                 </td>
             </tr>
+
         @endforeach
         </tbody>
     </table>
