@@ -26,6 +26,7 @@
         </thead>
         <tbody>
         @foreach($posts as $post)
+            @if($post->poster = Auth::User()->name)
 
                 <tr>
                 <th scope="row" style="width: 50px">{{ $post->id }}</th>
@@ -40,7 +41,7 @@
                     </form>
                 </td>
             </tr>
-
+            @endif
         @endforeach
         </tbody>
     </table>

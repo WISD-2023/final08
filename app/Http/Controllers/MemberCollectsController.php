@@ -33,13 +33,13 @@ class MemberCollectsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required',
-            'is_feature' => 'required|boolean',
             'poster' => 'required|boolean',
             'collected' => 'required|boolean',
         ]);
 
-        Post::create($request->all());
+        Collect::create($request->all());
         return redirect(route('member.collects.index'));
+        //dd($request);
     }
 
     public function edit(Collect $collect)

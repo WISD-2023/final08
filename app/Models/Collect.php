@@ -14,7 +14,6 @@ class Collect extends Model
     protected $fillable = [
         'title',
         'content',
-        'is_feature',
         'poster',
         'collected'
     ];

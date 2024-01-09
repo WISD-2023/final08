@@ -14,20 +14,19 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col" style="text-align: left">標題</th>
+            <th scope="col" style="text-align: left">內容</th>
             <th scope="col" style="text-align: left">作者</th>
         </tr>
         </thead>
         <tbody>
 
             @foreach($collects as $collect)
-                @if($collect->title = Auth::Collect()->collects->title)
-
                     <tr>
                     <th scope="row" style="width: 50px">{{ $collect->id }}</th>
                     <td>{{ $collect->title }}</td>
+                    <td>{{ $collect->content}}</td>
                     <td>{{ $collect->poster}}</td>
                     <td style="width: 150px">
-                        <a class="btn btn-primary btn-sm" href="{{ route('member.collects.edit', $collect->id) }}">查看</a>
 
                         <form action="{{ route('member.collects.destroy', $collect->id) }}" method="post" style="display: inline-block">
                             @method('DELETE')
@@ -36,7 +35,6 @@
                         </form>
                     </td>
                 </tr>
-                @endif
             @endforeach
 
         </tbody>

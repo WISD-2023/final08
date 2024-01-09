@@ -11,7 +11,7 @@
         @include('member.layouts.shared.errors')
         <section class="mb-5">
             @foreach($collects as $collect)
-                @if($collect->title =Auth::User()->title)
+                @if($collect->title = Auth::User()->title)
                     <tr>
                     <th scope="row" style="width: 50px">{{ $collect->id }}</th>
                     <td>{{ $collect->title }}</td>
