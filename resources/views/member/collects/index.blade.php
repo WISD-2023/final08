@@ -18,9 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        @if(isset(Auth::User()->collects))
 
-        @else
             @foreach($collects as $collect)
                 <tr>
                     <th scope="row" style="width: 50px">{{ $collect->id }}</th>
@@ -37,7 +35,6 @@
                     </td>
                 </tr>
             @endforeach
-        @endif
         </tbody>
     </table>
 </div>

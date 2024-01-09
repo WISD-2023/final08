@@ -31,4 +31,8 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function collect()
+    {
+        return $this->belongsTo(Collect::class);
+    }
 }

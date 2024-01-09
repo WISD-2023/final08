@@ -28,4 +28,8 @@ class Admin extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function collect()
+    {
+        return $this->hasMany(Collect::class);
+    }
 }
