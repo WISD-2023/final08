@@ -28,16 +28,16 @@
                     <td>{{ $collect->poster}}</td>
                     <td style="width: 150px">
 
-                        <form action="{{ route('member.collects.destroy', $collect->id) }}" method="post" style="display: inline-block">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger btn-sm">移除收藏列</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
+{{--<form action="{{ route('member.collects.destroy', $collect->title) }}" method="post" style="display: inline-block">
+    @method('DELETE')
+    @csrf
+    <button type="submit" class="btn btn-danger btn-sm">刪除</button>
+</form>--}}
+</td>
+</tr>
+@endforeach
 
-        </tbody>
-    </table>
+</tbody>
+</table>
 </div>
 @endsection

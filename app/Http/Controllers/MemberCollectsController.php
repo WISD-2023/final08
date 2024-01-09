@@ -71,7 +71,7 @@ class MemberCollectsController extends Controller
         return redirect()->route('member.collects.index');
     }
 
-    public function destroy(Collect $collect)
+    public function destroy(Request $collect)
     {
 //dd($collect);
         $collect->delete();
