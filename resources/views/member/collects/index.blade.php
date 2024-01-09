@@ -18,22 +18,26 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($collects as $collect)
-            <tr>
-                <th scope="row" style="width: 50px">{{ $collect->id }}</th>
-                <td>{{ $collect->title }}</td>
-                <td>{{ $collect->poster}}</td>
-                <td style="width: 150px">
-                    <a class="btn btn-primary btn-sm" href="{{ route('member.collects.edit', $collect->id) }}">查看</a>
+        @if(isset(Auth::User()->collects))
 
-                    <form action="{{ route('member.collects.destroy', $collect->id) }}" method="post" style="display: inline-block">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger btn-sm">移除收藏列</button>
-                    </form>
-                </td>
-            </tr>
-        @endforeach
+        @else
+            @foreach($collects as $collect)
+                <tr>
+                    <th scope="row" style="width: 50px">{{ $collect->id }}</th>
+                    <td>{{ $collect->title }}</td>
+                    <td>{{ $collect->poster}}</td>
+                    <td style="width: 150px">
+                        <a class="btn btn-primary btn-sm" href="{{ route('member.collects.edit', $collect->id) }}">查看</a>
+
+                        <form action="{{ route('member.collects.destroy', $collect->id) }}" method="post" style="display: inline-block">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">移除收藏列</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        @endif
         </tbody>
     </table>
 </div>

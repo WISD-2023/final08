@@ -11,6 +11,7 @@
 
                 @auth
                         @if (isset(Auth::User()->admin))
+                            @elseif (Auth::Admin()->admin->user_id=Auth::User()->name)
 
                         <li class="nav-item"><a class="nav-link{{ (request()->is('posts*'))? " active" : "" }}" aria-current="page" href="{{ route('admin.posts.index') }}">管理員後臺控制</a></li>
                         @endif
@@ -18,7 +19,7 @@
 
                         <li><a class="nav-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();" style="color:white">{{ __('登出') }}</a>
+                                document.getElementById('logout-form').submit();" style="color:white">{{Auth::User()->name}}{{ __('登出') }}</a>
                         </li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
