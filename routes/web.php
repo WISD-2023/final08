@@ -63,7 +63,7 @@ Route::prefix('member')->name('member.')->group(function () {
     Route::delete('posts/{post}', [MemberPostsController::class, 'destroy'])->name("posts.destroy");
     Route::get('/', [MemberHomeController::class, 'index'])->name("home.index");
     Route::get('collects', [MemberCollectsController::class, 'index'])->name("collects.index");
-    Route::get('collects/create', [MemberCollectsController::class, 'create'])->name("collects.create");
+    Route::get('collects/{collects}/create', [MemberCollectsController::class, 'create'])->name("collects.create");
     Route::post('collects', [MemberCollectsController::class, 'store'])->name("collects.store");
     Route::get('collects/{collects}/edit', [MemberCollectsController::class, 'edit'])->name("collects.edit");
     Route::patch('collects/{collects}', [MemberCollectsController::class, 'update'])->name("collects.update");

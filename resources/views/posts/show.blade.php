@@ -17,7 +17,7 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">{{ $post->title }}</h1>
+                        <h1 class="fw-bolder mb-1">標題{{ $post->title }}</h1>
                         <!-- Post meta content-->
                         <div class="text-muted fst-italic mb-2">建立於 {{ $post->updated_at->toDateTimeString() }} </div>
                         <!-- Post categories-->
@@ -33,8 +33,9 @@
                     <div class="card bg-light">
                         創建者{{ $post->poster }}
                     </div>
+
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-success btn-sm" href="{{ route('member.collects.store',$post) }}">收藏</a>
+                        <a class="btn btn-success btn-sm" href="{{ route('member.collects.create', $post->id) }}">收藏</a>
                     </div>
                 </section>
             </div>

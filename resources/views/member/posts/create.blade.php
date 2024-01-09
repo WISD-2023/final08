@@ -33,7 +33,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">創建者</label>
-            <input id="poster" name="poster" type="text" class="form-control" value="{{Auth::User()->name}}">
+            <input id="poster" name="poster" type="text" class="form-control" readonly="readonly" value="{{Auth::User()->name}}">
         </div>
     </form>
 </div>

@@ -15,7 +15,6 @@
             <th scope="col">#</th>
             <th scope="col" style="text-align: left">標題</th>
             <th scope="col" style="text-align: left">作者</th>
-            <th scope="col">功能</th>
         </tr>
         </thead>
         <tbody>
@@ -23,9 +22,11 @@
             <tr>
                 <th scope="row" style="width: 50px">{{ $collect->id }}</th>
                 <td>{{ $collect->title }}</td>
-                <td>{{ $collect->collectser}}</td>
+                <td>{{ $collect->poster}}</td>
                 <td style="width: 150px">
-                    <form action="{{ route('member.collects.destroy', $collect->title) }}" method="post" style="display: inline-block">
+                    <a class="btn btn-primary btn-sm" href="{{ route('member.collects.edit', $collect->id) }}">查看</a>
+
+                    <form action="{{ route('member.collects.destroy', $collect->id) }}" method="post" style="display: inline-block">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger btn-sm">移除收藏列</button>

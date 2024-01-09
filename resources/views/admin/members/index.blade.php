@@ -30,7 +30,7 @@
 
 
                 <td style="width: 150px">
-                    <form action="{{ route('admin.members.destroy', $admin->user_id) }}" method="POST" style="display:inline-block">
+                    <form action="{{ route('admin.members.destroy', $admin->id) }}" method="POST" style="display:inline-block">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-sm btn-danger" type="submit">刪除</button>

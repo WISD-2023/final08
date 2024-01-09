@@ -18,9 +18,14 @@ class MemberCollectsController extends Controller
 
     }
 
-    public function create()
+    public function create(Post $request)
     {
-        return view('member.collects.create');
+        //$data = [
+        //    'post' => $post,
+        //];
+
+        dd($request);
+        //return view('member.collects.create',$data);
     }
 
     public function store(Request $request)
@@ -28,7 +33,9 @@ class MemberCollectsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required',
-            'is_feature' => 'required|boolean',   //請加入is_feature欄位的驗證規則
+            'is_feature' => 'required|boolean',
+            'poster' => 'required|boolean',
+            'collected' => 'required|boolean',
         ]);
 
         Post::create($request->all());
@@ -40,7 +47,7 @@ class MemberCollectsController extends Controller
         $data = [
             'post' => $post,
         ];
-
+//dd($data );
         return view('member.collects.edit', $data);
     }
 
@@ -56,9 +63,10 @@ class MemberCollectsController extends Controller
         return redirect()->route('member.collects.index');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Collect $collect)
     {
-        $post->delete();
+//dd($collect);
+        $collect->delete();
 
         return redirect()->route('member.collects.index');
     }

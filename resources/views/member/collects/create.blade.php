@@ -11,11 +11,12 @@
     @include('member.layouts.shared.errors')
 
     <form action="{{ route('member.posts.store') }}" method="post">
+
         @csrf
         @method('POST')
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">文章標題</label>
-            <input id="title" name="title" type="text" class="form-control" placeholder="請輸入文章標題">
+            <input id="title" name="title" type="text" class="form-control" value="111" placeholder="請輸入文章標題">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">文章內容</label>
