@@ -26,13 +26,14 @@
         </thead>
         <tbody>
         @foreach($posts as $post)
-            @if($post->poster = Auth::User()->name)
+            @if($post->poster == Auth::User()->name)
 
                 <tr>
-                <th scope="row" style="width: 50px">{{ $post->id }}</th>
+                <th >{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->poster}}</td>
-                <td style="width: 150px">
+                <th >{{ Auth::User()->name }}</th>
+                    <td style="width: 150px">
                     <a class="btn btn-primary btn-sm" href="{{ route('member.posts.edit', $post->id) }}">編輯</a>
                     <form action="{{ route('member.posts.destroy', $post->id) }}" method="post" style="display: inline-block">
                         @method('DELETE')
