@@ -21,6 +21,8 @@
         <tbody>
 
             @foreach($collects as $collect)
+                @if($collect->collected == Auth::User()->name)
+
                     <tr>
                     <th scope="row" style="width: 50px">{{ $collect->id }}</th>
                     <td>{{ $collect->title }}</td>
@@ -35,6 +37,7 @@
 </form>--}}
 </td>
 </tr>
+                @endif
 @endforeach
 
 </tbody>
