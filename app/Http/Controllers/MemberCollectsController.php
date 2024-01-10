@@ -33,8 +33,8 @@ class MemberCollectsController extends Controller
         $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required',
-            'poster' => 'required|boolean',
-            'collected' => 'required|boolean',
+            'poster' => 'required',
+            'collected' => 'required',
         ]);
 
         Collect::create($request->all());
