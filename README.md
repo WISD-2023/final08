@@ -83,10 +83,7 @@ blog系統
 樣板 https://startbootstrap.com/template/sb-admin
 
 
-## 系統測試資料存放位置
-- final01底下的sql資料夾
 
-## 系統使用者測試帳號
 
 
 ## 系統復原步驟
