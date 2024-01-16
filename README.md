@@ -1,66 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 系統畫面
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## ◆會員 首頁
+  <a href="https://imgur.com/bxOyACC"/><img src="https://imgur.com/bxOyACC.png" title="source: imgur.com" /></a>
 
-## About Laravel
+## ◆會員 查看BLOG資訊
+  <a href="https://imgur.com/NkBmjCj"/><img src="https://imgur.com/NkBmjCj.png" title="source: imgur.com" /></a>
+## ◆會員 查看BLOG內容
+  <a href="https://imgur.com/6jSQjTV"/><img src="https://imgur.com/6jSQjTV.png" title="source: imgur.com" /></a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ◆會員 文章管理
+  <a href="https://imgur.com/zzszfV7"/><img src="https://imgur.com/zzszfV7.png" title="source: imgur.com" /></a>
+## ◆會員 收藏管理
+  <a href="https://imgur.com/c3TSfgL"/><img src="https://imgur.com/c3TSfgL.png" title="source: imgur.com" /></a>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ◆管理員 會員控制
+  <a href="https://imgur.com/ntFchnI"/><img src="https://imgur.com/ntFchnI.png" title="source: imgur.com" /></a>
+## ◆管理員 文章控制
+  <a href="https://imgur.com/OR3vKDR"/><img src="https://imgur.com/OR3vKDR.png" title="source: imgur.com" /></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# 系統名稱及作用
+blog系統
+- 會員可自行在網站上傳觀看收藏blog
+- 管理者可查看所有blog 並管理會員
 
-## Learning Laravel
+# 系統的主要功能與負責的同學
+[3B032049 鄭哲丞](https://github.com/3B032049)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 首頁 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+- 首頁blog Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
+- 首頁blog內容 Route::get('posts/{post}', [PostsController::class, 'show'])->name('posts.show');
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+- 管理員下面的功用 Route::prefix('admin')->name('admin.')->group(function () {
+- Route::get('/', [AdminHomeController::class, 'index'])->name("home.index");
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- 文章管理 Route::get('posts', [AdminPostsController::class, 'index'])->name("posts.index");
+- Route::get('posts/create', [AdminPostsController::class, 'create'])->name("posts.create");
+- Route::post('posts', [AdminPostsController::class, 'store'])->name("posts.store");
+- Route::get('posts/{post}/edit', [AdminPostsController::class, 'edit'])->name("posts.edit");
+- Route::patch('posts/{post}', [AdminPostsController::class, 'update'])->name("posts.update");
+- Route::delete('posts/{post}', [AdminPostsController::class, 'destroy'])->name("posts.destroy");
 
-### Premium Partners
+- 管理員資格管理 Route::get('members', [AdminMembersController::class, 'index'])->name("members.index");
+- Route::get('members/create', [AdminMembersController::class, 'create'])->name("members.create");
+- Route::post('members', [AdminMembersController::class, 'store'])->name("members.store");
+- Route::get('members/{member}/edit', [AdminMembersController::class, 'edit'])->name("members.edit");
+- Route::patch('members/{member}', [AdminMembersController::class, 'update'])->name("members.update");
+- Route::delete('members/{member}', [AdminMembersController::class, 'destroy'])->name("members.destroy");
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- 會員下面的功 Route::prefix('member')->name('member.')->group(function () {
+- Route::get('/', [MemberHomeController::class, 'index'])->name("home.index");
 
-## Contributing
+- 文章管理Route::get('posts', [MemberPostsController::class, 'index'])->name("posts.index");
+- Route::get('posts/create', [MemberPostsController::class, 'create'])->name("posts.create");
+- Route::post('posts', [MemberPostsController::class, 'store'])->name("posts.store");
+- Route::get('posts/{post}/edit', [MemberPostsController::class, 'edit'])->name("posts.edit");
+- Route::patch('posts/{post}', [MemberPostsController::class, 'update'])->name("posts.update");
+- Route::delete('posts/{post}', [MemberPostsController::class, 'destroy'])->name("posts.destroy");
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- 收藏管理Route::get('/', [MemberHomeController::class, 'index'])->name("home.index");
+- Route::get('collects', [MemberCollectsController::class, 'index'])->name("collects.index");
+- Route::get('collects/{collects}/create', [MemberCollectsController::class, 'create'])->name("collects.create");
+- Route::post('collects', [MemberCollectsController::class, 'store'])->name("collects.store");
+- Route::get('collects/{collects}/edit', [MemberCollectsController::class, 'edit'])->name("collects.edit");
+- Route::patch('collects/{collects}', [MemberCollectsController::class, 'update'])->name("collects.update");
+- Route::delete('collects/{collects}', [MemberCollectsController::class, 'destroy'])->name("collects.destroy");
+});
+## ERD
+<a href="https://imgur.com/PruvwqO"/><img src="https://imgur.com/PruvwqO.png" title="source: imgur.com" /></a>
 
-## Code of Conduct
+## 關聯式綱要圖
+<a href="https://imgur.com/X3NvUUU"/><img src="https://imgur.com/X3NvUUU.png" title="source: imgur.com" /></a>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 實際資料表欄位設計
+<a href="https://imgur.com/akk2mcu"/><img src="https://imgur.com/akk2mcu.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/PruvwqO"/><img src="https://imgur.com/PruvwqO.png" title="source: imgur.com" /></a>
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## 樣板
+樣板 https://startbootstrap.com/template/sb-admin
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 系統測試資料存放位置
+- final01底下的sql資料夾
+
+## 系統使用者測試帳號
+
+
+## 系統復原步驟
+1. 複製 git@github.com:WISD-2023/final08.git 
+
+   打開 cmder，進入www，輸入git clone git@github.com:WISD-2023/final08.git 切換至專案所在資料夾->cd final08
+2. cmder輸入以下命令，復原專案
+    - composer install
+    - composer run-script post-root-package-install
+    - composer run-script post-create-project-cmd (.evn 產生金鑰 APP_KEY=<自動產生>)
+    - npm install
+    - npm run build
+3. 修改.env檔案
+    - DB_CONNECTION=mysql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=33060
+    - DB_DATABASE=blog_website
+    - DB_USERNAME=root
+    - DB_PASSWORD=root
+4. 復原DB/建立資料庫
+    - artisan migrate
+
+
+## 系統開發人員與工作分配
+
